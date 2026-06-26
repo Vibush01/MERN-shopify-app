@@ -1,0 +1,12 @@
+{
+  "en": {
+    "announcement_banner": {
+      "name": "Announcement Banner",
+      "settings": {
+        "bg_color": { "label": "Background Color" },
+        "text_color": { "label": "Text Color" },
+        "font_size": { "label": "Font Size" }
+      }
+    }
+  }
+}

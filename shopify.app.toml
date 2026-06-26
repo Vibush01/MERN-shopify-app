@@ -34,5 +34,4 @@ api_version = "2025-10"
 redirect_urls = [ "https://mern-shopify-app.onrender.com/auth/callback" ]
 
 [build]
-include_config_on_deploy = true
 automatically_update_urls_on_dev = true
