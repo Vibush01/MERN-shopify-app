@@ -1,0 +1,89 @@
+{% comment %}
+  Announcement Banner - App Embed Block
+  Reads the shop metafield set by the futureblink-app admin dashboard
+  and displays a floating announcement banner at the top of every page.
+{% endcomment %}
+
+{% assign announcement_text = shop.metafields.my_app.announcement.value %}
+
+{% if announcement_text != blank %}
+<div id="futureblink-announcement-bar" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999;
+  background: {{ block.settings.bg_color }};
+  color: {{ block.settings.text_color }};
+  text-align: center;
+  padding: 12px 40px;
+  font-size: {{ block.settings.font_size }}px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.3s ease;
+">
+  <span>{{ announcement_text }}</span>
+  <button
+    onclick="document.getElementById('futureblink-announcement-bar').style.transform='translateY(-100%)'"
+    style="
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: {{ block.settings.text_color }};
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px 8px;
+      opacity: 0.7;
+      line-height: 1;
+    "
+    aria-label="Close announcement"
+  >✕</button>
+</div>
+
+<style>
+  /* Push the page content down so nothing is hidden behind the fixed banner */
+  body {
+    padding-top: 48px !important;
+  }
+</style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Banner",
+  "target": "body",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#1a1a2e"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    }
+  ]
+}
+{% endschema %}
