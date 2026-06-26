@@ -18,7 +18,7 @@ const shopify = shopifyApp({
     process.env.MONGO_URI,
     'futureblink_db',
   ),
-  distribution: AppDistribution.AppStore,
+  distribution: AppDistribution.SingleMerchant,
   future: {
     expiringOfflineAccessTokens: true,
   },

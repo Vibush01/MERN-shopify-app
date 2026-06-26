@@ -7,34 +7,20 @@ name = "futureblink-app"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products,write_metaobjects,write_metaobject_definitions"
+scopes = ""
 
-[product.metafields.app.demo_info]
+# Declare the shop metafield used by the announcement banner
+[shop.metafields.my_app.announcement]
 type = "single_line_text_field"
-name = "Demo Source Info"
-description = "Tracks products created by the Shopify app template for development"
+name = "Announcement Banner Text"
+description = "The announcement text displayed on the storefront banner"
 
-  [product.metafields.app.demo_info.access]
+  [shop.metafields.my_app.announcement.access]
   admin = "merchant_read_write"
-
-[metaobjects.app.example]
-name = "Example"
-description = "An example metaobject definition created by this template"
-
-  [metaobjects.app.example.access]
-  admin = "merchant_read_write"
-
-[metaobjects.app.example.fields.title]
-name = "Title"
-type = "single_line_text_field"
-required = true
-
-[metaobjects.app.example.fields.description]
-name = "Description"
-type = "multi_line_text_field"
+  storefront = "public_read"
 
 [webhooks]
-api_version = "2026-07"
+api_version = "2025-10"
 
   [[webhooks.subscriptions]]
   uri = "/webhooks/app/uninstalled"
