@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "6f6321b8175874ba0efe2c1d1e5c1961"
-application_url = "https://example.com"
+application_url = "https://mern-shopify-app.onrender.com"
 embedded = true
 name = "futureblink-app"
 
@@ -31,7 +31,7 @@ api_version = "2025-10"
   topics = [ "app/scopes_update" ]
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [ "https://mern-shopify-app.onrender.com/auth/callback" ]
 
 [build]
 include_config_on_deploy = true
